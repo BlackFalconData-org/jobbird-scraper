@@ -1,6 +1,6 @@
 # Jobbird Scraper
 
-Extract structured data from [jobbird.com](https://jobbird.com) — jobbird.com — the Netherlands' dedicated job board. Structured salary ranges, employment types, and incremental change tracking for new and updated listings.
+Extract structured data from [jobbird.com](https://jobbird.com) — the Netherlands' dedicated job board. Structured salary ranges, employment types, and incremental change tracking for new and updated listings.
 
 **[Jobbird Scraper on Apify →](https://apify.com/blackfalcondata/jobbird-scraper)**
 
@@ -72,22 +72,33 @@ Use compact mode and description truncation to feed data into AI agents, MCP ser
 
 ## FAQ
 
-<!-- WRITE: 4-6 Q&A pairs relevant to this product -->
+**How many results can I get?**
+The number of results depends on available listings matching your query. Use `maxResults: 0` for unlimited results. Typical keyword searches return between 50 and 5000+ results.
+
+**Does it support location-based filtering?**
+Yes. Set `location` to a Dutch city or region (e.g. "Amsterdam", "Utrecht", "Rotterdam") and `radius` (default 30 km) to control the search area.
+
+**Can I filter by contract type?**
+Yes. Use `contractType` with values like `fulltime`, `parttime`, or `temporary`. Use `category` to filter by job category slug (e.g. `ict-automatisering`).
+
+**How does incremental mode work?**
+Each listing gets a content hash. On subsequent runs, only new or changed listings are emitted — saving time, compute, and storage.
 
 **Is it legal to scrape jobbird.com?**
 Web scraping of publicly available data is generally legal. This actor only accesses publicly visible information. Always check the target site's terms of service for your specific use case.
 
-**How does incremental mode work?**
-Each listing gets a content hash. On subsequent runs, only new or changed listings are emitted — saving time, compute, and storage.
+**Can I integrate with Zapier or Google Sheets?**
+Yes. Use Apify's built-in integrations to export results to Google Sheets, trigger Zapier workflows, or connect to Make (Integromat) when a run completes.
 
 ---
 
 ## Known limitations
 
-<!-- WRITE: 4-6 honest limitations -->
-
-- <!-- WRITE: limitation 1 -->
-- <!-- WRITE: limitation 2 -->
+- Jobbird.com only covers the Netherlands — not suitable for other countries
+- Salary data is not present on all listings — unavailable fields are returned as `null`
+- Contact details (email, phone) are not exposed by jobbird.com's public API — these fields are always `null`
+- Category filter requires an exact slug (e.g. `ict-automatisering`) — free-text category names are not resolved
+- Pagination is sequential (no parallelism) because Jobbird's API does not return total result counts upfront
 
 ---
 
