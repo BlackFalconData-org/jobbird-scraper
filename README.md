@@ -2,11 +2,12 @@
 
 Extract structured data from [jobbird.com](https://jobbird.com) — the Netherlands' dedicated job board. Structured salary ranges, employment types, and incremental change tracking for new and updated listings.
 
-**[Jobbird Scraper on Apify →](https://apify.com/blackfalcondata/jobbird-scraper)**
+**[Jobbird Scraper - Netherlands Job Board on Apify →](https://apify.com/blackfalcondata/jobbird-scraper)**
 
 ---
 
 ## Key features
+
 
 
 
@@ -19,6 +20,7 @@ Extract structured data from [jobbird.com](https://jobbird.com) — the Netherla
 ---
 
 ## Use cases
+
 
 
 
@@ -94,6 +96,7 @@ Yes. Use Apify's built-in integrations to export results to Google Sheets, trigg
 ---
 
 ## Related products by Black Falcon Data
+
 
 
 
